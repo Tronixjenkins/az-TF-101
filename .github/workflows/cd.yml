@@ -22,18 +22,18 @@ jobs:
             
               - name: Initialize Terraform
                 env:
-                  ARM_DEV_SUBSCRIPTION_ID: ${{ var.ARM_DEV_SUBSCRIPTION_ID }}
-                  ARM_PRD_SEBSCRIPTION_ID: ${{ var.ARM_PRD_SUBSCRIPTION_ID }}
-                  TENANT_ID: ${{ var.TENANT_ID }}
-                  ARM_CLIENT_ID: ${{ var.ARM_CLIENT_ID }}
-                  ARM_DEV_CLIENT_ID: ${{ var.ARM_DEV_CLIENT_ID }}
+                  ARM_DEV_SUBSCRIPTION_ID: ${{ vars.ARM_DEV_SUBSCRIPTION_ID }}
+                  ARM_PRD_SEBSCRIPTION_ID: ${{ vars.ARM_PRD_SUBSCRIPTION_ID }}
+                  TENANT_ID: ${{ vars.TENANT_ID }}
+                  ARM_CLIENT_ID: ${{ vars.ARM_CLIENT_ID }}
+                  ARM_DEV_CLIENT_ID: ${{ vars.ARM_DEV_CLIENT_ID }}
                   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
                   ARM_DEV_CLIENT_SECRET: ${{ secrets.ARM_DEV_CLIENT_SECRET }}
                   TF_VAR_application_name: ${{ env.APPLICATION_NAME }}
                   TF_VAR_environment_name: ${{ env.ENVIRONMENT_NAME }}
-                  BACKEND_RESOURCE_GROUP: ${{ var.BACKEND_RESOURCE_GROUP }}
-                  BACKEND_STORAGE_ACCOUNT: ${{ var.BACKEND_STORAGE_ACCOUNT }}
-                  BACKEND_STORAGE_CONTAINER_NAME: ${{ var.BACKEND_STORAGE_CONTAINER_NAME }}
+                  BACKEND_RESOURCE_GROUP: ${{ vars.BACKEND_RESOURCE_GROUP }}
+                  BACKEND_STORAGE_ACCOUNT: ${{ vars.BACKEND_STORAGE_ACCOUNT }}
+                  BACKEND_STORAGE_CONTAINER_NAME: ${{ vars.BACKEND_STORAGE_CONTAINER_NAME }}
                   TF_BACKEND_KEY: ${{ env.APPLICATION_NAME }}-${{ env.ENVIRONMENT_NAME }}
                 run: |
                    terraform init \

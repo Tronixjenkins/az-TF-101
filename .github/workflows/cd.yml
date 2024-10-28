@@ -23,11 +23,11 @@ jobs:
               - name: Initialize Terraform
                 env:
                   ARM_DEV_SUBSCRIPTION_ID: ${{ vars.ARM_DEV_SUBSCRIPTION_ID }}
-                  ARM_PRD_SEBSCRIPTION_ID: ${{ vars.ARM_PRD_SUBSCRIPTION_ID }}
+                  #ARM_PRD_SEBSCRIPTION_ID: ${{ vars.ARM_PRD_SUBSCRIPTION_ID }}
                   TENANT_ID: ${{ vars.TENANT_ID }}
-                  ARM_CLIENT_ID: ${{ vars.ARM_CLIENT_ID }}
+                  #ARM_CLIENT_ID: ${{ vars.ARM_CLIENT_ID }}
                   ARM_DEV_CLIENT_ID: ${{ vars.ARM_DEV_CLIENT_ID }}
-                  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+                  #ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
                   ARM_DEV_CLIENT_SECRET: ${{ secrets.ARM_DEV_CLIENT_SECRET }}
                   TF_VAR_application_name: ${{ env.APPLICATION_NAME }}
                   TF_VAR_environment_name: ${{ env.ENVIRONMENT_NAME }}

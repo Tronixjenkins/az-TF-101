@@ -1,12 +1,9 @@
 #test
 name: continious deploy
-on:
-    push:
-        branches:
-            - main
-        paths:
-            - 'src/**'
-            - '.github/workflow/**'
+on: workflow_dispatch
+    
+
+
 env:
     APPLICATION_NAME: "az-tf-1001"
     ENVIRONMENT_NAME: "dev"
@@ -35,8 +32,8 @@ jobs:
                   TF_VAR_environment_name: ${{ env.ENVIRONMENT_NAME }}
                   BACKEND_RESOURCE_GROUP: ${{ var.BACKEND_RESOURCE_GROUP }}
                   BACKEND_STORAGE_ACCOUNT: ${{ var.BACKEND_STORAGE_ACCOUNT }}
-                  BACKEND_STORAGE_CONTAINER_NAME: ${{ var.BACKEND_STORAGE_CONTAINER_NAME}}
-                  TF_BACKEND_KEY: ${{ env.APPLICATION_NAME }}-${{ env.ENVIRONMENT }}
+                  BACKEND_STORAGE_CONTAINER_NAME: ${{ var.BACKEND_STORAGE_CONTAINER_NAME }}
+                  TF_BACKEND_KEY: ${{ env.APPLICATION_NAME }}-${{ env.ENVIRONMENT_NAME }}
                 run: |
                    terraform init \
                    -backend-config="resource_group_name=${BACKEND_RESOURCE_GROUP}" \
